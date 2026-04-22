@@ -1,0 +1,77 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title"><i class="bi bi-card-list text-primary me-2"></i> Actualités</h1>
+      <p class="page-subtitle">Gestion du contenu de la page d'accueil</p>
+    </div>
+    <a routerLink="/moderateur/actualites/creer" class="btn-primary-modern">
+      <i class="bi bi-plus-lg me-1"></i> Créer
+    </a>
+  </div>
+
+  <div class="card-page mb-4">
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-3 mb-md-0 d-flex align-items-center">
+           <label class="fw-medium text-muted me-3 mb-0 text-nowrap">Filtrer par catégorie :</label>
+           <select class="form-select border-0 shadow-sm" [(ngModel)]="filtreCategorie">
+             <option value="">Toutes les catégories</option>
+             <option value="ACTUALITE">Actualité</option>
+             <option value="ANNONCE">Annonce</option>
+             <option value="PROJET_RECENT">Projet Récent</option>
+           </select>
+        </div>
+      </div>
+  </div>
+
+  <div class="card-page overflow-hidden">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light text-muted">
+          <tr>
+            <th class="ps-4">Titre</th>
+            <th>Catégorie</th>
+            <th>Date</th>
+            <th>Auteur</th>
+            <th class="text-center">Épinglé</th>
+            <th class="text-center">Visible</th>
+            <th class="text-end pe-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of filteredActualites" [class.bg-light]="!a.visible">
+            <td class="ps-4 fw-medium text-truncate" style="max-width: 250px;">{{ a.titre }}</td>
+            <td>
+              <span class="badge rounded-pill px-3 py-2" 
+                     [ngClass]="{'bg-primary-subtle text-primary': a.categorie === 'ACTUALITE', 'bg-warning-subtle text-warning': a.categorie === 'ANNONCE', 'bg-success-subtle text-success': a.categorie === 'PROJET_RECENT'}">
+                 {{ a.categorie }}
+               </span>
+            </td>
+            <td><small class="text-muted">{{ a.datePublication | date:'shortDate' }}</small></td>
+            <td>{{ a.auteur }}</td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-link text-decoration-none" (click)="toggleEpingle(a.id)">
+                <i class="bi fs-5" [ngClass]="a.estEpingle ? 'bi-star-fill text-warning' : 'bi-star text-muted'"></i>
+              </button>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-sm btn-link text-decoration-none" (click)="toggleVisible(a.id)">
+                <i class="bi fs-5" [ngClass]="a.visible ? 'bi-eye-fill text-success' : 'bi-eye-slash text-danger'"></i>
+              </button>
+            </td>
+            <td class="text-end pe-4">
+              <a [routerLink]="['/moderateur/actualites/modifier', a.id]" class="btn btn-sm btn-light text-primary rounded-circle me-2 p-2 shadow-sm">
+                <i class="bi bi-pencil"></i>
+              </a>
+              <button class="btn btn-sm btn-light text-danger rounded-circle p-2 shadow-sm" (click)="deleteActualite(a.id)">
+                <i class="bi bi-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredActualites.length === 0">
+            <td colspan="7" class="text-center py-5 text-muted">Aunune actualité à afficher.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

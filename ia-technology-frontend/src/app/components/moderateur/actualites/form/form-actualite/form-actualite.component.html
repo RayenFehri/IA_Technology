@@ -1,0 +1,75 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">{{ isEditMode ? 'Modifier' : 'Créer' }}</h1>
+    </div>
+    <a routerLink="/moderateur/actualites" class="btn-secondary-modern">
+      <i class="fas fa-arrow-left"></i> Retour
+    </a>
+  </div>
+
+  <div style="width: 100%; margin: 0 auto;">
+    <div class="card-page">
+          <form [formGroup]="actualiteForm" (ngSubmit)="onSubmit()">
+            
+            <div class="mb-4">
+              <label class="form-label fw-medium text-dark">Titre de l'actualité <span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-lg bg-light border-0" formControlName="titre" placeholder="Saisissez un titre percutant">
+              <div *ngIf="actualiteForm.get('titre')?.invalid && actualiteForm.get('titre')?.touched" class="text-danger mt-1 small">
+                Le titre est requis et ne doit pas dépasser 200 caractères.
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-medium text-dark">Catégorie <span class="text-danger">*</span></label>
+              <select class="form-select form-select-lg bg-light border-0" formControlName="categorie">
+                <option *ngFor="let cat of categories" [value]="cat">{{ cat }}</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-medium text-dark">Image de Couverture</label>
+              <div class="d-flex align-items-center gap-3">
+                <input type="file" class="form-control form-control-lg bg-light border-0" (change)="onFileSelected($event)" accept="image/*">
+                <div *ngIf="isUploading" class="spinner-border text-primary" role="status"></div>
+              </div>
+              <div class="mt-2 text-success small" *ngIf="actualiteForm.get('imageUrl')?.value && !isUploading">
+                <i class="bi bi-check-circle-fill"></i> Image chargée avec succès !
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-medium text-dark">Contenu détaillé <span class="text-danger">*</span></label>
+              <textarea class="form-control bg-light border-0" formControlName="contenu" rows="8" placeholder="Écrivez le contenu ici..."></textarea>
+            </div>
+
+            <div class="row g-4 mb-5">
+              <div class="col-md-6">
+                <div class="form-check form-switch p-3 bg-light rounded-3 d-flex align-items-center justify-content-between h-100 m-0">
+                  <label class="form-check-label fw-medium w-100" for="epingleSwitch">
+                    <i class="bi bi-star-fill text-warning me-2"></i> Épingler en haut
+                  </label>
+                  <input class="form-check-input ms-0 mt-0 flex-shrink-0" type="checkbox" role="switch" id="epingleSwitch" style="width: 40px; height: 20px;" formControlName="estEpingle">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check form-switch p-3 bg-light rounded-3 d-flex align-items-center justify-content-between h-100 m-0">
+                  <label class="form-check-label fw-medium w-100" for="visibleSwitch">
+                    <i class="bi bi-eye-fill text-success me-2"></i> Publié au public
+                  </label>
+                  <input class="form-check-input ms-0 mt-0 flex-shrink-0" type="checkbox" role="switch" id="visibleSwitch" style="width: 40px; height: 20px;" formControlName="visible">
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-3 mt-2 pt-4 border-top">
+              <button type="button" routerLink="/moderateur/actualites" class="btn btn-light px-4 rounded-pill">Annuler</button>
+              <button type="submit" class="btn btn-primary px-4 rounded-pill shadow-sm" [disabled]="actualiteForm.invalid">
+                <i class="bi bi-check-lg me-2"></i> {{ isEditMode ? 'Enregistrer les modifications' : 'Créer l\'actualité' }}
+              </button>
+            </div>
+
+          </form>
+    </div>
+  </div>
+</div>

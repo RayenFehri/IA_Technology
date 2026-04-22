@@ -1,0 +1,43 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">{{ isEditMode ? 'Modifier le domaine' : 'Créer un domaine' }}</h1>
+    </div>
+    <a routerLink="/admin/domaines" class="btn-secondary-modern"><i class="fas fa-arrow-left"></i> Retour</a>
+  </div>
+
+  <div style="width: 100%; margin: 0 auto;">
+    <div class="card-page">
+
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+
+          <div *ngIf="!isLoading">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <form [formGroup]="domaineForm" (ngSubmit)="onSubmit()">
+              
+              <div class="mb-4">
+                <label class="form-label fw-bold">Nom du domaine <span class="text-danger">*</span></label>
+                <input type="text" class="form-control form-control-lg" formControlName="nom"
+                  [ngClass]="{'is-invalid': domaineForm.get('nom')?.invalid && domaineForm.get('nom')?.touched}">
+                <div class="invalid-feedback">Le nom du domaine est requis.</div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label fw-bold">Description</label>
+                <textarea rows="4" class="form-control" formControlName="description"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="domaineForm.invalid || isSaving">
+                <span *ngIf="isSaving" class="spinner-border spinner-border-sm me-2"></span>
+                {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+              </button>
+
+            </form>
+          </div>
+          
+    </div>
+  </div>
+</div>

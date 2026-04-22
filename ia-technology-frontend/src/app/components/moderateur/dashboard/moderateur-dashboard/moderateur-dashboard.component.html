@@ -1,0 +1,183 @@
+<div class="admin-page">
+
+  <!-- ── Page Header ────────────────────────── -->
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Espace Modérateur</h1>
+      <p class="page-subtitle">Gestion des contenus et publications de la plateforme</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/moderateur/actualites/creer" class="btn-primary-modern">
+        <i class="fas fa-plus"></i> Nouvelle Actualité
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Stat Cards ─────────────────────────── -->
+  <div class="stats-grid">
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.1s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#EEF2FF">
+          <i class="fas fa-newspaper" style="color:#4F46E5"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ nbActualites }}</div>
+          <div class="stat-label">Actualités publiées</div>
+        </div>
+      </div>
+      <a routerLink="/moderateur/actualites" class="stat-action">
+        Gérer <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.15s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#FFF7ED">
+          <i class="fas fa-bullhorn" style="color:#EA580C"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ nbAnnonces }}</div>
+          <div class="stat-label">Annonces</div>
+        </div>
+      </div>
+      <a routerLink="/moderateur/actualites" class="stat-action">
+        Voir <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.2s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#F5F3FF">
+          <i class="fas fa-star" style="color:#7C3AED"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ nbProjetsMisEnAvant }}</div>
+          <div class="stat-label">Projets mis en avant</div>
+        </div>
+      </div>
+      <a routerLink="/moderateur/projets" class="stat-action">
+        Gérer <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.25s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#ECFDF5">
+          <i class="fas fa-tag" style="color:#16A34A"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ nbProjetsRecents }}</div>
+          <div class="stat-label">Projets récents</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 2 : Dernières Actualités ────────── -->
+  <div style="margin-bottom: 24px;">
+    <div class="card-page table-card">
+      <div class="table-card-header">
+        <h3 class="chart-title">Dernières Actualités</h3>
+        <div class="d-flex gap-2">
+          <a routerLink="/moderateur/actualites/creer" class="btn-primary-modern" style="padding:6px 14px;font-size:13px">
+            <i class="fas fa-plus"></i> Créer
+          </a>
+          <a routerLink="/moderateur/actualites" class="btn-secondary-modern" style="padding:6px 14px;font-size:13px">
+            Voir toutes <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div *ngIf="dernieresActualites.length === 0" class="empty-state">
+        <div class="empty-icon"><i class="fas fa-newspaper"></i></div>
+        <h3>Aucune actualité</h3>
+        <p>Créez votre première actualité pour la communauté</p>
+        <a routerLink="/moderateur/actualites/creer" class="btn-primary-modern">
+          <i class="fas fa-plus"></i> Créer une actualité
+        </a>
+      </div>
+
+      <div class="table-responsive" *ngIf="dernieresActualites.length > 0">
+        <table class="table-modern w-100">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>Catégorie</th>
+              <th>Date</th>
+              <th>Épinglé</th>
+              <th>Visible</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let act of dernieresActualites">
+              <td>
+                <div class="fw-600" style="font-size:14px;max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                  {{ act.titre }}
+                </div>
+              </td>
+              <td>
+                <span class="badge-modern" [class]="getActuBadgeClass(act.categorie)">
+                  {{ formatCategorie(act.categorie) }}
+                </span>
+              </td>
+              <td>
+                <span style="font-size:13px;color:var(--text-muted)">
+                  {{ act.datePublication | date:'dd/MM/yy' }}
+                </span>
+              </td>
+              <td>
+                <i class="fas" [class.fa-thumbtack]="act.estEpingle" [class.fa-minus]="!act.estEpingle"
+                   [style.color]="act.estEpingle ? 'var(--primary)' : 'var(--gray-300)'"></i>
+              </td>
+              <td>
+                <span class="badge-modern" [class]="act.visible ? 'badge-success' : 'badge-rapport'">
+                  {{ act.visible ? 'Visible' : 'Masqué' }}
+                </span>
+              </td>
+              <td>
+                <div class="d-flex gap-2">
+                  <a [routerLink]="['/moderateur/actualites/modifier', act.id]" class="btn-icon btn-edit" title="Modifier">
+                    <i class="fas fa-pencil"></i>
+                  </a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Quick Actions Modérateur ──────────────── -->
+  <div class="quick-actions-card">
+    <h3 class="chart-title">Actions Rapides</h3>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-3">
+        <a routerLink="/moderateur/actualites/creer" class="quick-action-box">
+          <i class="fas fa-newspaper"></i>
+          <span>Nouvelle Actualité</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a routerLink="/moderateur/projets/creer" class="quick-action-box">
+          <i class="fas fa-star"></i>
+          <span>Nouveau Projet</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a routerLink="/publications" class="quick-action-box">
+          <i class="fas fa-book-open"></i>
+          <span>Voir Publications</span>
+        </a>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <a routerLink="/chercheurs" class="quick-action-box">
+          <i class="fas fa-users"></i>
+          <span>Voir Chercheurs</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,115 @@
+<div class="auth-wrapper">
+  <!-- Left Panel : Illustration -->
+  <div class="auth-left">
+    <div class="auth-left-content">
+      <div class="auth-brand">
+        <div class="auth-brand-icon"><i class="fas fa-brain"></i></div>
+        <span class="auth-brand-name"><span style="color:rgba(255,255,255,0.7)">IA-</span>Technology</span>
+      </div>
+
+      <!-- SVG illustration -->
+      <div class="auth-illustration">
+        <svg viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg" opacity="0.9">
+          <circle cx="150" cy="125" r="80" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <circle cx="150" cy="125" r="55" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <circle cx="150" cy="125" r="30" fill="rgba(255,255,255,0.12)"/>
+          <circle cx="150" cy="125" r="12" fill="white" opacity="0.9"/>
+          <!-- Orbiting nodes -->
+          <circle cx="150" cy="45" r="8" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="220" cy="165" r="8" fill="rgba(255,255,255,0.7)"/>
+          <circle cx="80" cy="165" r="8" fill="rgba(255,255,255,0.7)"/>
+          <line x1="150" y1="125" x2="150" y2="45" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="150" y1="125" x2="220" y2="165" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <line x1="150" y1="125" x2="80" y2="165" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+        </svg>
+      </div>
+
+      <div class="auth-quote">
+        <blockquote>
+          "L'intelligence artificielle au service de la recherche scientifique"
+        </blockquote>
+        <cite>— Plateforme IA-Technology</cite>
+      </div>
+
+      <!-- Features list -->
+      <div class="auth-features">
+        <div class="auth-feature"><i class="fas fa-check-circle"></i> Publications scientifiques</div>
+        <div class="auth-feature"><i class="fas fa-check-circle"></i> Profils de chercheurs</div>
+        <div class="auth-feature"><i class="fas fa-check-circle"></i> Actualités & annonces</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Panel : Form -->
+  <div class="auth-right">
+    <div class="auth-form-wrapper">
+      <div class="auth-form-header">
+        <h1 class="auth-title">Bon retour ! 👋</h1>
+        <p class="auth-subtitle">Connectez-vous pour accéder à votre espace de recherche</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+
+        <!-- Alert erreur -->
+        <div *ngIf="errorMsg" class="alert-modern alert-error animate__animated animate__shakeX">
+          <i class="fas fa-circle-exclamation"></i> {{ errorMsg }}
+        </div>
+
+        <!-- Username -->
+        <div class="form-group">
+          <label class="form-label" for="username">Nom d'utilisateur</label>
+          <div class="input-icon-wrapper">
+            <i class="fas fa-user input-icon"></i>
+            <input
+              id="username"
+              type="text"
+              class="form-control input-with-icon"
+              placeholder="Votre identifiant"
+              formControlName="username"
+              [class.is-invalid]="loginForm.get('username')?.touched && loginForm.get('username')?.invalid"
+            >
+          </div>
+          <div class="field-error" *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']">
+            Le nom d'utilisateur est obligatoire
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <label class="form-label mb-0" for="password">Mot de passe</label>
+          </div>
+          <div class="input-icon-wrapper">
+            <i class="fas fa-lock input-icon"></i>
+            <input
+              id="password"
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-control input-with-icon input-with-toggle"
+              placeholder="Votre mot de passe"
+              formControlName="password"
+              [class.is-invalid]="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+            >
+            <button type="button" class="input-toggle-btn" (click)="showPassword = !showPassword">
+              <i class="fas" [class.fa-eye]="!showPassword" [class.fa-eye-slash]="showPassword"></i>
+            </button>
+          </div>
+          <div class="field-error" *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']">
+            Le mot de passe est obligatoire
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button type="submit" class="btn-submit" [disabled]="isLoading">
+          <span class="spinner-modern" *ngIf="isLoading"></span>
+          <span *ngIf="!isLoading"><i class="fas fa-right-to-bracket"></i> Se connecter</span>
+          <span *ngIf="isLoading">Connexion en cours...</span>
+        </button>
+
+        <p class="auth-switch">
+          Pas encore de compte ?
+          <a routerLink="/register" class="auth-switch-link">Créer un compte</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

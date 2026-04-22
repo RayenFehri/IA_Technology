@@ -1,0 +1,40 @@
+nohup: ignoring input
+
+> ia-technology-frontend@0.0.0 start
+> ng serve
+
+- Building...
+
+Initial chunk files | Names                          |  Raw size
+styles.css          | styles                         | 286.66 kB | 
+scripts.js          | scripts                        | 106.42 kB | 
+polyfills.js        | polyfills                      |  88.09 kB | 
+main.js             | main                           |  37.31 kB | 
+chunk-LAQ5E5SN.js   | -                              |   2.91 kB | 
+chunk-XT2YQQFZ.js   | -                              |   1.06 kB | 
+chunk-SHAOKUVO.js   | -                              | 938 bytes | 
+
+                    | Initial total                  | 523.35 kB
+
+Lazy chunk files    | Names                          |  Raw size
+chunk-X3TLD7OS.js   | home-component                 |  53.67 kB | 
+chunk-EHVQQABO.js   | register-component             |  25.78 kB | 
+chunk-47QBIEYY.js   | admin-dashboard-component      |  21.58 kB | 
+chunk-7XWVNNKT.js   | list-publication-component     |  20.79 kB | 
+chunk-JYTVHTHL.js   | form-publication-component     |  18.95 kB | 
+chunk-PUMSOYDG.js   | list-chercheur-component       |  18.83 kB | 
+chunk-5U4EEOMZ.js   | login-component                |  18.53 kB | 
+chunk-J3WEWQT7.js   | moderateur-dashboard-component |  17.56 kB | 
+chunk-ZI7EPKWF.js   | manage-users-component         |  15.75 kB | 
+chunk-IZ2C4HVI.js   | form-chercheur-component       |  15.13 kB | 
+chunk-PUG7WW74.js   | detail-publication-component   |  12.99 kB | 
+chunk-V3M7X33V.js   | form-actualite-component       |  12.63 kB | 
+chunk-5SUSZ7NX.js   | detail-chercheur-component     |  12.06 kB | 
+chunk-7C3C5KKD.js   | gestion-actualites-component   |  10.90 kB | 
+chunk-OKVAPS55.js   | gestion-projets-component      |  10.78 kB | 
+...and 12 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [5.512 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://localhost:4200/

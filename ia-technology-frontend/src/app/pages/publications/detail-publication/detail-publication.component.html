@@ -1,0 +1,69 @@
+<div class="container py-5">
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!isLoading && publication">
+    <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
+      <h2 class="fw-bold mb-0">Détails de la publication</h2>
+      <a routerLink="/publications" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour aux publications</a>
+    </div>
+
+    <div class="card shadow border-0 rounded-4 mb-5">
+      <div class="card-body p-4 p-md-5">
+        <div class="mb-3">
+          <span class="badge {{ getBadgeColor(publication.type) }} me-2 fs-6 px-3 py-2">{{ publication.type }}</span>
+          <span class="badge bg-secondary fs-6 px-3 py-2" *ngIf="publication.domaine">{{ publication.domaine.nom }}</span>
+        </div>
+        
+        <h1 class="fw-bold mb-3 display-5">{{ publication.titre }}</h1>
+        
+        <div class="d-flex flex-wrap align-items-center text-muted mb-4 pb-4 border-bottom">
+          <span class="me-4"><i class="bi bi-calendar3 me-2"></i> Publié le : <strong class="text-dark">{{ publication.datePublication | date:'dd MMMM yyyy' }}</strong></span>
+          <span *ngIf="publication.doi" class="me-4"><i class="bi bi-link-45deg me-1"></i> DOI: <a href="https://doi.org/{{ publication.doi }}" target="_blank" class="fw-bold">{{ publication.doi }}</a></span>
+        </div>
+
+        <h4 class="fw-bold mb-3">Résumé</h4>
+        <p class="lead text-muted" style="line-height: 1.8;">
+          {{ publication.resume }}
+        </p>
+
+        <div *ngIf="publication.motsCles" class="mt-4 pt-3">
+          <h6 class="fw-bold mb-2">Mots clefs:</h6>
+          <span *ngFor="let mot of publication.motsCles.split(',')" class="badge bg-light text-dark border me-2 mb-2 p-2">
+            #{{ mot.trim() }}
+          </span>
+        </div>
+
+      </div>
+      <div class="card-footer bg-light p-4 d-flex justify-content-between align-items-center rounded-bottom-4 border-top-0">
+        <div class="text-muted"><i class="bi bi-info-circle me-1"></i> Référence interne : #{{ publication.id }}</div>
+        <button *ngIf="publication.fichierUrl" (click)="downloadPdf(publication)" class="btn btn-success btn-lg shadow-sm">
+          <i class="bi bi-cloud-download me-2"></i> Télécharger le PDF complet
+        </button>
+      </div>
+    </div>
+
+    <h3 class="fw-bold mb-4">Auteurs associés ({{ publication.chercheurs?.length || 0 }})</h3>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let chercheur of publication.chercheurs">
+        <a [routerLink]="['/chercheurs', chercheur.id]" class="text-decoration-none">
+          <div class="card border-0 shadow-sm rounded-4 h-100 hover-lift bg-white">
+            <div class="card-body d-flex align-items-center p-3">
+              <img [src]="chercheur.photo || 'https://ui-avatars.com/api/?name='+chercheur.prenom+'+'+chercheur.nom+'&background=random'" 
+                   class="rounded-circle me-3 border" style="width: 60px; height: 60px; object-fit: cover;">
+              <div>
+                <h6 class="fw-bold text-dark mb-1">{{ chercheur.prenom }} {{ chercheur.nom }}</h6>
+                <p class="text-muted small mb-0">{{ chercheur.specialite }}</p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !publication" class="text-center py-5">
+    <h3 class="text-muted">Publication introuvable.</h3>
+  </div>
+</div>

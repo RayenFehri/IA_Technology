@@ -1,0 +1,78 @@
+<div class="container py-5">
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div *ngIf="!isLoading && chercheur">
+    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3">
+      <h2 class="fw-bold"><i class="bi bi-person-badge text-primary"></i> Profil du Chercheur</h2>
+      <a routerLink="/chercheurs" class="btn btn-outline-secondary"><i class="bi bi-arrow-left"></i> Retour</a>
+    </div>
+
+    <div class="row g-4">
+      <!-- Sidebar / Profil -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 sticky-top" style="top: 100px;">
+          <div class="card-body text-center p-5">
+            <img [src]="chercheur.photo || 'https://ui-avatars.com/api/?name='+chercheur.prenom+'+'+chercheur.nom+'&background=random'" 
+                 class="rounded-circle mb-3 border shadow-sm" alt="Photo" width="150" height="150">
+            <h4 class="fw-bold">{{ chercheur.prenom }} {{ chercheur.nom }}</h4>
+            <p class="text-muted">{{ chercheur.specialite }}</p>
+            
+            <hr>
+            
+            <ul class="list-unstyled text-start mb-0">
+              <li class="mb-2"><i class="bi bi-envelope text-primary me-2"></i> {{ chercheur.email }}</li>
+              <li class="mb-2" *ngIf="chercheur.telephone"><i class="bi bi-telephone text-primary me-2"></i> {{ chercheur.telephone }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="col-lg-8">
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
+          <div class="card-body p-4 p-md-5">
+            <h4 class="fw-bold mb-3">Biographie</h4>
+            <p class="text-muted mb-4" style="line-height: 1.8;">
+              {{ chercheur.biographie || 'Aucune biographie renseignée pour ce chercheur.' }}
+            </p>
+
+            <h5 class="fw-bold mb-3 mt-5">Domaines d'expertise</h5>
+            <div>
+              <span *ngFor="let dom of chercheur.domaines" class="badge bg-secondary me-2 mb-2 px-3 py-2 fs-6">
+                {{ dom.nom }}
+              </span>
+              <p *ngIf="!chercheur.domaines || chercheur.domaines.length === 0" class="text-muted">Aucun domaine associé.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-4 p-md-5">
+            <h4 class="fw-bold mb-4">Publications associées ({{ publications.length }})</h4>
+            
+            <div class="list-group list-group-flush">
+              <a *ngFor="let pub of publications" [routerLink]="['/publications', pub.id]" class="list-group-item list-group-item-action py-3 border-0 rounded-3 mb-2 bg-light">
+                <div class="d-flex w-100 justify-content-between">
+                  <h6 class="mb-1 fw-bold">{{ pub.titre }}</h6>
+                  <small class="text-muted">{{ pub.datePublication | date:'yyyy' }}</small>
+                </div>
+                <p class="mb-1 text-muted small">{{ pub.resume | slice:0:100 }}...</p>
+                <div class="mt-2">
+                  <span class="badge bg-primary me-1">{{ pub.type }}</span>
+                  <span class="badge bg-secondary" *ngIf="pub.domaine?.nom">{{ pub.domaine?.nom }}</span>
+                </div>
+              </a>
+              <p *ngIf="publications.length === 0" class="text-muted">Ce chercheur n'a aucune publication enregistrée.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !chercheur" class="text-center py-5">
+    <h3 class="text-muted">Chercheur introuvable.</h3>
+  </div>
+</div>

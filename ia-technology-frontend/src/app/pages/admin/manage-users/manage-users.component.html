@@ -1,0 +1,94 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title"><i class="fas fa-users-gear"></i> Gestion des Utilisateurs</h1>
+      <p class="page-subtitle">Administration des comptes et des rôles</p>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="skeleton" style="height:120px; border-radius:16px; margin-bottom:1rem"></div>
+    <div class="skeleton" style="height:80px; border-radius:16px;"></div>
+  </div>
+
+  <div class="card-page table-card" *ngIf="!isLoading">
+    <div class="table-card-header">
+      <span class="badge-modern badge-info">{{ users.length }} Utilisateurs</span>
+    </div>
+    <div class="table-responsive">
+      <table class="table-modern w-100">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Utilisateur</th>
+            <th>Nom &amp; Prénom</th>
+            <th>Email</th>
+            <th>Statut</th>
+            <th>Rôles</th>
+            <th>Changer Rôle</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td class="text-secondary fw-600" style="font-size:13px">{{ user.id }}</td>
+            <td>
+              <div class="d-flex align-items-center gap-2">
+                <div class="user-avatar">{{ (user.prenom ? user.prenom[0] : '') + (user.nom ? user.nom[0] : '') }}</div>
+                <span class="fw-600" style="font-size:14px">{{ user.username }}</span>
+              </div>
+            </td>
+            <td style="font-size:13px">{{ user.nom }} {{ user.prenom }}</td>
+            <td style="font-size:13px;color:var(--text-secondary)">{{ user.email }}</td>
+            <td>
+              <span class="badge-modern" [class]="user.enabled ? 'badge-success' : 'badge-rapport'">
+                {{ user.enabled ? 'Actif' : 'Désactivé' }}
+              </span>
+            </td>
+            <td>
+              <span *ngFor="let role of user.roles" class="badge-modern badge-nlp me-1" style="font-size:11px">
+                {{ role.name.replace('ROLE_', '') }}
+              </span>
+            </td>
+            <td>
+              <select class="form-control" style="width:140px;font-size:13px;padding:6px 10px"
+                      [ngModel]="user.roles && user.roles[0] ? user.roles[0].name : ''"
+                      (ngModelChange)="changeRole(user.id, $event)">
+                <option value="ROLE_USER">USER</option>
+                <option value="ROLE_MODERATEUR">MODÉRATEUR</option>
+                <option value="ROLE_ADMIN">ADMIN</option>
+              </select>
+            </td>
+            <td>
+              <button class="btn-icon btn-delete" (click)="openDeleteModal(user)" title="Supprimer">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="users.length === 0">
+            <td colspan="8" class="text-center py-4 text-muted">Aucun utilisateur enregistré.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal Confirmation Suppression ──── -->
+<div *ngIf="deleteModalOpen" class="modal-overlay" (click)="closeDeleteModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-box-icon"><i class="fas fa-triangle-exclamation"></i></div>
+    <h3 class="modal-box-title">Supprimer l'utilisateur</h3>
+    <p class="modal-box-text">
+      Êtes-vous sûr de vouloir supprimer <strong>{{ userToDelete?.username }}</strong> ?
+      Cette action est irréversible et supprimera toutes ses données.
+    </p>
+    <div class="modal-box-actions">
+      <button class="btn-cancel" (click)="closeDeleteModal()">Annuler</button>
+      <button class="btn-confirm" (click)="confirmDeleteUser()" [disabled]="isDeleting">
+        <span *ngIf="isDeleting"><i class="fas fa-spinner fa-spin"></i> Suppression...</span>
+        <span *ngIf="!isDeleting"><i class="fas fa-trash"></i> Supprimer</span>
+      </button>
+    </div>
+  </div>
+</div>

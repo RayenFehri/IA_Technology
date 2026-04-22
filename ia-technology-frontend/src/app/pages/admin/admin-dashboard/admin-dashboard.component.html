@@ -1,0 +1,201 @@
+<div class="admin-page">
+
+  <!-- ── Page Header ─────────────────────────── -->
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">Tableau de Bord Admin</h1>
+      <p class="page-subtitle">Vue d'ensemble de la plateforme IA-Technology</p>
+    </div>
+    <div class="header-actions">
+      <a routerLink="/chercheurs" class="btn-primary-modern">
+        <i class="fas fa-plus"></i> Ajouter un chercheur
+      </a>
+    </div>
+  </div>
+
+  <!-- ── SKELETON ─────────────────────────────── -->
+  <div *ngIf="isLoading" class="row g-4 mb-4">
+    <div class="col-xl-3 col-md-6" *ngFor="let i of [1,2,3,4]">
+      <div class="skeleton" style="height:130px;border-radius:16px"></div>
+    </div>
+  </div>
+
+  <!-- ── Stat Cards ────────────────────────────── -->
+  <div class="stats-grid" *ngIf="!isLoading">
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.1s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#EEF2FF">
+          <i class="fas fa-users" style="color:#4F46E5"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ stats.chercheurs }}</div>
+          <div class="stat-label">Chercheurs</div>
+        </div>
+      </div>
+      <a routerLink="/chercheurs" class="stat-action">
+        Voir tous <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.15s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#F0FDF4">
+          <i class="fas fa-book-open" style="color:#16A34A"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ stats.publications }}</div>
+          <div class="stat-label">Publications</div>
+        </div>
+      </div>
+      <a routerLink="/publications" class="stat-action">
+        Voir toutes <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.2s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#F5F3FF">
+          <i class="fas fa-tag" style="color:#7C3AED"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ stats.domaines }}</div>
+          <div class="stat-label">Domaines</div>
+        </div>
+      </div>
+      <a routerLink="/domaines" class="stat-action">
+        Voir tous <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="stat-card animate__animated animate__fadeInUp" style="animation-delay:0.25s">
+      <div class="stat-card-inner">
+        <div class="stat-icon" style="background:#FFF7ED">
+          <i class="fas fa-shield-halved" style="color:#EA580C"></i>
+        </div>
+        <div>
+          <div class="stat-value">{{ stats.users }}</div>
+          <div class="stat-label">Utilisateurs</div>
+        </div>
+      </div>
+      <a routerLink="/admin/users" class="stat-action">
+        Gérer <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Row 2 : Charts + Quick Actions ──────── -->
+  <div class="grid-2" *ngIf="!isLoading">
+
+    <!-- Chart Publications par type -->
+    <div class="chart-card">
+      <div class="chart-card-header">
+        <h3 class="chart-title">Publications par Type</h3>
+        <span class="badge-modern badge-article">{{ stats.publications }} total</span>
+      </div>
+      <div class="chart-container">
+        <canvas id="pubTypeChart"></canvas>
+      </div>
+    </div>
+
+    <!-- Actions rapides -->
+    <div class="quick-actions-card">
+      <h3 class="chart-title">Actions Rapides</h3>
+      <div class="quick-actions-list">
+        <a routerLink="/admin/chercheurs/nouveau" class="quick-action">
+          <div class="qa-icon" style="background:#EEF2FF;color:#4F46E5">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <div>
+            <div class="qa-title">Nouveau Chercheur</div>
+            <div class="qa-desc">Ajouter un chercheur à la plateforme</div>
+          </div>
+          <i class="fas fa-chevron-right qa-arrow"></i>
+        </a>
+        <a routerLink="/admin/publications/nouveau" class="quick-action">
+          <div class="qa-icon" style="background:#F0FDF4;color:#16A34A">
+            <i class="fas fa-file-plus"></i>
+          </div>
+          <div>
+            <div class="qa-title">Nouvelle Publication</div>
+            <div class="qa-desc">Soumettre une publication scientifique</div>
+          </div>
+          <i class="fas fa-chevron-right qa-arrow"></i>
+        </a>
+        <a routerLink="/admin/domaines/nouveau" class="quick-action">
+          <div class="qa-icon" style="background:#F5F3FF;color:#7C3AED">
+            <i class="fas fa-tag"></i>
+          </div>
+          <div>
+            <div class="qa-title">Nouveau Domaine</div>
+            <div class="qa-desc">Créer un domaine de recherche</div>
+          </div>
+          <i class="fas fa-chevron-right qa-arrow"></i>
+        </a>
+        <a routerLink="/admin/users" class="quick-action">
+          <div class="qa-icon" style="background:#FFF7ED;color:#EA580C">
+            <i class="fas fa-users-gear"></i>
+          </div>
+          <div>
+            <div class="qa-title">Gérer les Utilisateurs</div>
+            <div class="qa-desc">Rôles, accès et modération</div>
+          </div>
+          <i class="fas fa-chevron-right qa-arrow"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Row 3 : Recent Publications Table ──── -->
+  <div class="card-page table-card" *ngIf="!isLoading && recentPublications.length > 0">
+    <div class="table-card-header">
+      <h3 class="chart-title">Dernières Publications</h3>
+      <a routerLink="/publications" class="btn-secondary-modern" style="padding:6px 14px;font-size:13px">
+        Voir toutes <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="table-responsive">
+      <table class="table-modern w-100">
+        <thead>
+          <tr>
+            <th>Titre</th>
+            <th>Type</th>
+            <th>Domaine</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pub of recentPublications">
+            <td>
+              <div class="fw-600" style="font-size:14px;max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
+                {{ pub.titre }}
+              </div>
+            </td>
+            <td>
+              <span class="badge-modern" [class]="getPubBadgeClass(pub.type)">{{ pub.type }}</span>
+            </td>
+            <td>
+              <span class="text-secondary" style="font-size:13px">{{ pub.domaine?.nom || '—' }}</span>
+            </td>
+            <td>
+              <span style="font-size:13px;color:var(--text-muted)">
+                {{ pub.datePublication | date:'dd/MM/yy' }}
+              </span>
+            </td>
+            <td>
+              <div class="d-flex gap-2">
+                <a [routerLink]="['/publications', pub.id]" class="btn-icon btn-view" title="Voir">
+                  <i class="fas fa-eye"></i>
+                </a>
+                <a [routerLink]="['/admin/publications/editer', pub.id]" class="btn-icon btn-edit" title="Modifier">
+                  <i class="fas fa-pencil"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

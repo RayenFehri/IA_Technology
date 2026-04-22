@@ -1,0 +1,104 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title"><i class="bi bi-journal-text text-primary me-2"></i> Publications Scientifiques</h1>
+      <p class="page-subtitle">Gestion des publications scientifiques</p>
+    </div>
+    <a *ngIf="isAdmin" routerLink="/admin/publications/nouveau" class="btn-primary-modern">
+      <i class="bi bi-plus-lg me-1"></i> Ajouter
+    </a>
+  </div>
+
+  <div class="card-page mb-4">
+    <div class="card-body row g-3">
+      <div class="col-md-4">
+        <label class="form-label text-muted small fw-bold">Recherche par titre</label>
+        <div class="input-group">
+          <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+          <input type="text" class="form-control border-start-0 ps-0" placeholder="Mots-clés..." [formControl]="titreControl">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label text-muted small fw-bold">Type de publication</label>
+        <select class="form-select" [formControl]="typeControl">
+          <option value="">Tous les types</option>
+          <option value="ARTICLE">Article</option>
+          <option value="THESE">Thèse</option>
+          <option value="RAPPORT">Rapport technique</option>
+          <option value="CONFERENCE">Conférence</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label text-muted small fw-bold">Domaine</label>
+        <select class="form-select" [formControl]="domaineControl">
+          <option value="">Tous les domaines</option>
+          <option *ngFor="let dom of domaines" [value]="dom.id">{{ dom.nom }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status"></div>
+  </div>
+
+  <div class="row g-4" *ngIf="!isLoading">
+    <div class="col-12" *ngFor="let pub of filteredPublications">
+      <div class="card border-0 shadow-sm rounded-4 hover-lift">
+        <div class="card-body p-4">
+          <div class="row align-items-center">
+            
+            <div class="col-md-8">
+              <div class="mb-2">
+                <span class="badge {{ getBadgeColor(pub.type) }} me-2">{{ pub.type }}</span>
+                <span class="badge border border-secondary text-secondary" *ngIf="pub.domaine">{{ pub.domaine.nom }}</span>
+              </div>
+              <h5 class="fw-bold mb-2">{{ pub.titre }}</h5>
+              <p class="text-muted small mb-2">{{ pub.resume | slice:0:200 }}...</p>
+              
+              <div class="d-flex align-items-center text-muted small mt-3">
+                <i class="bi bi-calendar3 me-2"></i> {{ pub.datePublication | date:'dd/MM/yyyy' }}
+                <span class="mx-2">|</span>
+                <i class="bi bi-person-lines-fill me-2"></i> {{ pub.chercheurs?.length || 0 }} Auteur(s)
+              </div>
+            </div>
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0 d-flex flex-column align-items-md-end justify-content-center">
+              <a [routerLink]="['/publications', pub.id]" class="btn btn-outline-primary mb-2 w-75"><i class="bi bi-eye"></i> Consulter</a>
+              <a *ngIf="pub.fichierUrl" [href]="pub.fichierUrl" target="_blank" class="btn btn-success mb-2 w-75"><i class="bi bi-download"></i> PDF</a>
+              
+              <div *ngIf="isAdmin" class="btn-group w-75 mt-2">
+                <a [routerLink]="['/admin/publications/editer', pub.id]" class="btn btn-outline-secondary"><i class="bi bi-pencil"></i></a>
+                <button (click)="openDeleteModal(pub)" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 text-center py-5" *ngIf="filteredPublications.length === 0">
+      <h3 class="text-muted">Aucune publication trouvée.</h3>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal Confirmation Suppression ────── -->
+<div *ngIf="deleteModalOpen" class="modal-overlay" (click)="closeDeleteModal()">
+  <div class="modal-box" (click)="$event.stopPropagation()">
+    <div class="modal-box-icon"><i class="fas fa-triangle-exclamation"></i></div>
+    <h3 class="modal-box-title">Confirmer la suppression</h3>
+    <p class="modal-box-text">
+      Êtes-vous sûr de vouloir supprimer <strong>{{ publicationToDelete?.titre }}</strong> ?
+      Cette action est irréversible.
+    </p>
+    <div class="modal-box-actions">
+      <button class="btn-cancel" (click)="closeDeleteModal()">Annuler</button>
+      <button class="btn-confirm" (click)="confirmDelete()" [disabled]="isDeleting">
+        <span *ngIf="isDeleting"><i class="fas fa-spinner fa-spin"></i> Suppression...</span>
+        <span *ngIf="!isDeleting"><i class="fas fa-trash"></i> Supprimer</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">{{ isEditMode ? 'Modifier chercheur' : 'Nouveau chercheur' }}</h1>
+    </div>
+    <a routerLink="/admin/chercheurs" class="btn-secondary-modern"><i class="fas fa-arrow-left"></i> Retour</a>
+  </div>
+
+  <div style="width: 100%; margin: 0 auto;">
+    <div class="card-page">
+
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+
+          <form [formGroup]="chercheurForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Nom <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="nom">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Prénom <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="prenom">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" formControlName="email">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Téléphone</label>
+                <input type="text" class="form-control" formControlName="telephone">
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Spécialité <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" formControlName="specialite">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Photo de profil <i class="bi bi-image text-primary"></i></label>
+                <input type="file" class="form-control" accept="image/*" (change)="onFileSelected($event)">
+                <small class="text-muted" *ngIf="chercheurForm.value.photo">Fichier sélectionné : {{ chercheurForm.value.photo }}</small>
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Biographie</label>
+              <textarea rows="4" class="form-control" formControlName="biographie"></textarea>
+            </div>
+
+            <!-- Ajout des Domaines (Checkboxes) -->
+            <div class="mb-5">
+              <label class="form-label fw-bold">Domaines d'expertise</label>
+              <div class="card bg-light border-0 p-3">
+                <div class="row g-2">
+                  <div class="col-md-6" *ngFor="let dom of domainesDisponibles">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" [value]="dom.id"
+                             (change)="onCheckboxChange($event)" [checked]="isDomaineSelected(dom.id!)">
+                      <label class="form-check-label">{{ dom.nom }}</label>
+                    </div>
+                  </div>
+                  <div *ngIf="domainesDisponibles.length === 0" class="text-muted small">Aucun domaine disponible.</div>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="chercheurForm.invalid || isSaving">
+              <span *ngIf="isSaving" class="spinner-border spinner-border-sm me-2"></span>
+              {{ isEditMode ? 'Enregistrer les modifications' : 'Créer le chercheur' }}
+            </button>
+            
+          </form>
+
+    </div>
+  </div>
+</div>

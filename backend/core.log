@@ -1,0 +1,354 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.iatechnology:core-service >--------------------
+[INFO] Building core-service 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.4:run (default-cli) > test-compile @ core-service >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ core-service ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ core-service ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ core-service ---
+[INFO] skip non existing resourceDirectory /home/rayenfehri/9raya/sem2/web/backend/core-service/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ core-service ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< spring-boot:3.2.4:run (default-cli) < test-compile @ core-service <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.2.4:run (default-cli) @ core-service ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.4)
+
+2026-04-22T21:43:26.795+01:00  INFO 10005 --- [core-service] [           main] c.i.platform.CoreServiceApplication      : Starting CoreServiceApplication using Java 21.0.10 with PID 10005 (/home/rayenfehri/9raya/sem2/web/backend/core-service/target/classes started by rayenfehri in /home/rayenfehri/9raya/sem2/web/backend/core-service)
+2026-04-22T21:43:26.797+01:00  INFO 10005 --- [core-service] [           main] c.i.platform.CoreServiceApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-04-22T21:43:27.581+01:00  INFO 10005 --- [core-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-22T21:43:27.711+01:00  INFO 10005 --- [core-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 5 JPA repository interfaces.
+2026-04-22T21:43:27.910+01:00  INFO 10005 --- [core-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=e56bfb99-3321-3f84-bcb9-371595537d8f
+2026-04-22T21:43:28.146+01:00  WARN 10005 --- [core-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2026-04-22T21:43:28.148+01:00  WARN 10005 --- [core-service] [           main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2026-04-22T21:43:28.363+01:00  INFO 10005 --- [core-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2026-04-22T21:43:28.374+01:00  INFO 10005 --- [core-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-22T21:43:28.375+01:00  INFO 10005 --- [core-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-04-22T21:43:28.431+01:00  INFO 10005 --- [core-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-22T21:43:28.432+01:00  INFO 10005 --- [core-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1592 ms
+2026-04-22T21:43:28.621+01:00  INFO 10005 --- [core-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-22T21:43:28.667+01:00  INFO 10005 --- [core-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-04-22T21:43:28.696+01:00  INFO 10005 --- [core-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-22T21:43:28.880+01:00  INFO 10005 --- [core-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-22T21:43:28.907+01:00  INFO 10005 --- [core-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-22T21:43:29.077+01:00  INFO 10005 --- [core-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ac9e53c
+2026-04-22T21:43:29.078+01:00  INFO 10005 --- [core-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-22T21:43:29.122+01:00  WARN 10005 --- [core-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-22T21:43:29.914+01:00  INFO 10005 --- [core-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-22T21:43:29.998+01:00  INFO 10005 --- [core-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-22T21:43:30.695+01:00  WARN 10005 --- [core-service] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-22T21:43:30.747+01:00  WARN 10005 --- [core-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 239d81b5-4148-4547-a232-a61a1c24681f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-04-22T21:43:31.119+01:00  INFO 10005 --- [core-service] [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5abf9a76, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4e132a9b, org.springframework.security.web.context.SecurityContextHolderFilter@93cc5eb, org.springframework.security.web.header.HeaderWriterFilter@5c6fae3c, org.springframework.web.filter.CorsFilter@7f2d4ffc, org.springframework.security.web.authentication.logout.LogoutFilter@123fd460, com.iatechnology.platform.security.AuthTokenFilter@43c39321, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23bf19c9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7def08fc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38293d23, org.springframework.security.web.session.SessionManagementFilter@7cc966a9, org.springframework.security.web.access.ExceptionTranslationFilter@70a81b4e, org.springframework.security.web.access.intercept.AuthorizationFilter@1f15d346]
+2026-04-22T21:43:31.578+01:00  INFO 10005 --- [core-service] [           main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2026-04-22T21:43:31.631+01:00  WARN 10005 --- [core-service] [           main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2026-04-22T21:43:31.656+01:00  INFO 10005 --- [core-service] [           main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2026-04-22T21:43:31.736+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2026-04-22T21:43:31.740+01:00  INFO 10005 --- [core-service] [           main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2026-04-22T21:43:31.755+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-22T21:43:32.102+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-22T21:43:32.103+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2026-04-22T21:43:32.106+01:00  INFO 10005 --- [core-service] [           main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2026-04-22T21:43:32.111+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1776890612109 with initial instances count: 0
+2026-04-22T21:43:32.116+01:00  INFO 10005 --- [core-service] [           main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application CORE-SERVICE with eureka with status UP
+2026-04-22T21:43:32.117+01:00  INFO 10005 --- [core-service] [           main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1776890612117, current=UP, previous=STARTING]
+2026-04-22T21:43:32.118+01:00  INFO 10005 --- [core-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CORE-SERVICE/fedora:core-service:8082: registering service...
+2026-04-22T21:43:32.133+01:00  INFO 10005 --- [core-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path ''
+2026-04-22T21:43:32.134+01:00  INFO 10005 --- [core-service] [           main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2026-04-22T21:43:32.146+01:00  INFO 10005 --- [core-service] [           main] c.i.platform.CoreServiceApplication      : Started CoreServiceApplication in 5.712 seconds (process running for 6.017)
+2026-04-22T21:43:32.237+01:00  INFO 10005 --- [core-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_CORE-SERVICE/fedora:core-service:8082 - registration status: 204
+Hibernate: select count(*) from actualites a1_0
+Hibernate: select count(*) from projets_mis_en_avant pmea1_0
+2026-04-22T21:44:02.104+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2026-04-22T21:44:02.106+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2026-04-22T21:44:02.132+01:00  INFO 10005 --- [core-service] [freshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2026-04-22T21:44:21.413+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-22T21:44:21.414+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-22T21:44:21.417+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-04-22T21:44:21.949+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 481 ms
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0 where pmea1_0.actif order by pmea1_0.ordre
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.visible order by a1_0.date_publication desc
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.visible order by a1_0.date_publication desc
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0 where pmea1_0.actif order by pmea1_0.ordre
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.visible order by a1_0.date_publication desc
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0 where pmea1_0.actif order by pmea1_0.ordre
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0 where c1_0.id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.visible order by a1_0.date_publication desc
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0 where pmea1_0.actif order by pmea1_0.ordre
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+2026-04-22T21:48:31.758+01:00  INFO 10005 --- [core-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: insert into domaines (date_creation,description,nom) values (?,?,?)
+2026-04-22T21:49:41.362+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] c.i.platform.aspect.LoggingAspect        : Action [CREATE] exécutée dans DomaineService par User 'admin' - Succès
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+2026-04-22T21:49:45.766+01:00  INFO 10005 --- [core-service] [nio-8082-exec-5] c.i.platform.aspect.LoggingAspect        : Action [DELETE] exécutée dans DomaineService par User 'admin' - Succès
+Hibernate: delete from domaines where id=?
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0
+Hibernate: insert into actualites (auteur,categorie,contenu,date_modification,date_publication,est_epingle,image_url,titre,visible) values (?,?,?,?,?,?,?,?,?)
+2026-04-22T21:51:14.698+01:00  INFO 10005 --- [core-service] [nio-8082-exec-1] c.i.platform.aspect.LoggingAspect        : Action [CREATE] exécutée dans ActualiteService par User 'admin' - Succès
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: update actualites set auteur=?,categorie=?,contenu=?,date_modification=?,est_epingle=?,image_url=?,titre=?,visible=? where id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0 where a1_0.id=?
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select pmea1_0.id,pmea1_0.actif,pmea1_0.ajoute_par,pmea1_0.date_ajout,pmea1_0.description,pmea1_0.image_url,pmea1_0.lien_publication,pmea1_0.ordre,pmea1_0.titre from projets_mis_en_avant pmea1_0
+Hibernate: select a1_0.id,a1_0.auteur,a1_0.categorie,a1_0.contenu,a1_0.date_modification,a1_0.date_publication,a1_0.est_epingle,a1_0.image_url,a1_0.titre,a1_0.visible from actualites a1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0
+Hibernate: select p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.domaine_id,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0
+Hibernate: select c1_0.id,c1_0.biographie,c1_0.date_naissance,c1_0.email,c1_0.nom,c1_0.photo,c1_0.prenom,c1_0.specialite,c1_0.telephone from chercheurs c1_0
+Hibernate: select d1_0.id,d1_0.date_creation,d1_0.description,d1_0.nom from domaines d1_0 where d1_0.id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+Hibernate: select c1_0.publication_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from publication_chercheur c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.publication_id=?
+Hibernate: select c1_0.domaine_id,c1_1.id,c1_1.biographie,c1_1.date_naissance,c1_1.email,c1_1.nom,c1_1.photo,c1_1.prenom,c1_1.specialite,c1_1.telephone from chercheur_domaine c1_0 join chercheurs c1_1 on c1_1.id=c1_0.chercheur_id where c1_0.domaine_id=?
+Hibernate: select d1_0.chercheur_id,d1_1.id,d1_1.date_creation,d1_1.description,d1_1.nom from chercheur_domaine d1_0 join domaines d1_1 on d1_1.id=d1_0.domaine_id where d1_0.chercheur_id=?
+Hibernate: select p1_0.domaine_id,p1_0.id,p1_0.date_publication,p1_0.doi,p1_0.fichier_url,p1_0.mots_cles,p1_0.resume,p1_0.titre,p1_0.type from publications p1_0 where p1_0.domaine_id=?
+Hibernate: select p1_0.chercheur_id,p1_1.id,p1_1.date_publication,p1_1.doi,p1_1.domaine_id,p1_1.fichier_url,p1_1.mots_cles,p1_1.resume,p1_1.titre,p1_1.type from publication_chercheur p1_0 join publications p1_1 on p1_1.id=p1_0.publication_id where p1_0.chercheur_id=?
+2026-04-22T21:53:31.761+01:00  INFO 10005 --- [core-service] [trap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

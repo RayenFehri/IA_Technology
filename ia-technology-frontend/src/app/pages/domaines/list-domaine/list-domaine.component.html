@@ -1,0 +1,39 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title"><i class="bi bi-diagram-3 text-primary"></i> Domaines de Recherche</h1>
+      <p class="page-subtitle">Domaines de recherche scientifiques</p>
+    </div>
+    <a *ngIf="isAdmin" routerLink="/admin/domaines/nouveau" class="btn-primary-modern">
+      <i class="bi bi-plus-lg"></i> Créer
+    </a>
+  </div>
+
+  <div *ngIf="isLoading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+
+  <div class="grid-3" *ngIf="!isLoading">
+    <div class="col-md-6 col-lg-4" *ngFor="let domaine of domaines">
+      <div class="card h-100 shadow-sm border-0 bg-light rounded-4 hover-lift">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="fw-bold mb-0 text-dark">{{ domaine.nom }}</h5>
+            <span class="badge bg-secondary rounded-pill"><i class="bi bi-people"></i> Chercheurs</span>
+          </div>
+          <p class="text-muted mb-0">{{ domaine.description || 'Aucune description disponible.' }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-top-0 d-flex justify-content-end p-3" *ngIf="isAdmin">
+          <a [routerLink]="['/admin/domaines/editer', domaine.id]" class="btn btn-sm btn-outline-secondary me-2">Modifier</a>
+          <button (click)="deleteDomaine(domaine.id!)" class="btn btn-sm btn-outline-danger">Supprimer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 py-5 text-center" *ngIf="domaines.length === 0">
+      <h3 class="text-muted">Aucun domaine trouvé.</h3>
+    </div>
+  </div>
+</div>

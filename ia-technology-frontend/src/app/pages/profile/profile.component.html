@@ -1,0 +1,63 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow border-0 rounded-4">
+        
+        <div class="card-header bg-primary text-white py-4 rounded-top-4 text-center">
+          <h3 class="mb-0 fw-bold">Mon Profil</h3>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+          
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+
+          <div *ngIf="!isLoading">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <div *ngIf="successMessage" class="alert alert-success">{{ successMessage }}</div>
+
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              
+              <div class="mb-4 text-center">
+                <div class="d-inline-flex justify-content-center align-items-center bg-light rounded-circle" style="width:100px; height:100px; font-size:2.5rem;">
+                  <i class="bi bi-person-circle text-secondary"></i>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label text-muted small text-uppercase fw-bold">Nom d'utilisateur</label>
+                <input type="text" class="form-control bg-light" formControlName="username">
+              </div>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <label class="form-label">Nom</label>
+                  <input type="text" class="form-control" formControlName="nom"
+                    [ngClass]="{'is-invalid': profileForm.get('nom')?.invalid && profileForm.get('nom')?.touched}">
+                </div>
+                <div class="col-md-6 mt-3 mt-md-0">
+                  <label class="form-label">Prénom</label>
+                  <input type="text" class="form-control" formControlName="prenom"
+                    [ngClass]="{'is-invalid': profileForm.get('prenom')?.invalid && profileForm.get('prenom')?.touched}">
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" formControlName="email"
+                  [ngClass]="{'is-invalid': profileForm.get('email')?.invalid && profileForm.get('email')?.touched}">
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 btn-lg" [disabled]="profileForm.invalid || isSaving">
+                <span *ngIf="isSaving" class="spinner-border spinner-border-sm me-2"></span>
+                Enregistrer les modfications
+              </button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

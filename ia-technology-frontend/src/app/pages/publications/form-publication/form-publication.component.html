@@ -1,0 +1,101 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title">{{ isEditMode ? 'Modifier la publication' : 'Créer une publication' }}</h1>
+    </div>
+    <a routerLink="/admin/publications" class="btn-secondary-modern"><i class="fas fa-arrow-left"></i> Retour</a>
+  </div>
+
+  <div style="width: 100%; margin: 0 auto;">
+    <div class="card-page">
+
+          <div *ngIf="isLoading" class="text-center py-4">
+            <div class="spinner-border text-primary" role="status"></div>
+          </div>
+
+          <form [formGroup]="pubForm" (ngSubmit)="onSubmit()" *ngIf="!isLoading">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Titre de la publication <span class="text-danger">*</span></label>
+              <input type="text" class="form-control form-control-lg" formControlName="titre"
+                [ngClass]="{'is-invalid': pubForm.get('titre')?.invalid && pubForm.get('titre')?.touched}">
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Type <span class="text-danger">*</span></label>
+                <select class="form-select" formControlName="type">
+                  <option value="ARTICLE">Article</option>
+                  <option value="THESE">Thèse</option>
+                  <option value="RAPPORT">Rapport Technique</option>
+                  <option value="CONFERENCE">Conférence</option>
+                </select>
+              </div>
+              <div class="col-md-6" formGroupName="domaine">
+                <label class="form-label">Domaine <span class="text-danger">*</span></label>
+                <select class="form-select" formControlName="id">
+                  <option [ngValue]="null" disabled>Sélectionnez un domaine</option>
+                  <option *ngFor="let dom of domainesDisponibles" [ngValue]="dom.id">{{ dom.nom }}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Date de publication <span class="text-danger">*</span></label>
+                <input type="date" class="form-control" formControlName="datePublication">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Identifiant DOI</label>
+                <input type="text" class="form-control" formControlName="doi" placeholder="Ex: 10.1000/182">
+              </div>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label fw-bold">Résumé <span class="text-danger">*</span></label>
+              <textarea rows="5" class="form-control" formControlName="resume"></textarea>
+            </div>
+
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label">Document PDF <i class="bi bi-file-earmark-pdf text-danger"></i></label>
+                <input type="file" class="form-control" accept=".pdf" (change)="onFileSelected($event)">
+                <small class="text-muted" *ngIf="pubForm.value.fichierUrl">Fichier sélectionné : {{ pubForm.value.fichierUrl }}</small>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Mots clés (séparés par des virgules)</label>
+                <input type="text" class="form-control" formControlName="motsCles" placeholder="IA, Machine Learning, ...">
+              </div>
+            </div>
+
+            <!-- Auteurs (Chercheurs) Checkboxes -->
+            <div class="mb-5">
+              <label class="form-label fw-bold">Auteurs (Chercheurs) <span class="text-danger">*</span></label>
+              <div class="card bg-light border-0 p-3" style="max-height: 250px; overflow-y: auto;">
+                <div class="row g-2">
+                  <div class="col-md-6" *ngFor="let chercheur of chercheursDisponibles">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" [value]="chercheur.id"
+                             (change)="onChercheurCheck($event)" [checked]="isChercheurSelected(chercheur.id!)">
+                      <label class="form-check-label">{{ chercheur.prenom }} {{ chercheur.nom }}</label>
+                    </div>
+                  </div>
+                  <div *ngIf="chercheursDisponibles.length === 0" class="text-muted small">Aucun chercheur enregistré.</div>
+                </div>
+              </div>
+              <div class="form-text text-danger" *ngIf="chercheursFormArray.length === 0 && pubForm.touched">
+                Veuillez sélectionner au moins un auteur.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 btn-lg shadow-sm" [disabled]="pubForm.invalid || isSaving || chercheursFormArray.length === 0">
+              <span *ngIf="isSaving" class="spinner-border spinner-border-sm me-2"></span>
+              {{ isEditMode ? 'Enregistrer les modifications' : 'Publier' }}
+            </button>
+            
+          </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,310 @@
+<!-- ===========================
+     HOME PAGE PREMIUM - IA-Technology
+     =========================== -->
+
+<!-- ── Skeleton Loading ─────────────────────────── -->
+<div *ngIf="isLoading" class="loading-overlay">
+  <div class="spinner-border text-primary" role="status"></div>
+</div>
+
+<!-- ── SECTION 1 : HERO ──────────────────────────── -->
+<section class="hero-section" *ngIf="!isLoading">
+  <div class="hero-container">
+    <div class="hero-content animate__animated animate__fadeInLeft">
+      <div class="hero-badge">
+        <i class="fas fa-sparkles"></i> Plateforme de Recherche IA
+      </div>
+      <h1 class="hero-title">
+        La Recherche en IA,
+        <span class="highlight">Centralisée & Valorisée</span>
+      </h1>
+      <p class="hero-subtitle">
+        Découvrez nos chercheurs, explorez des publications scientifiques de pointe
+        et restez connecté aux dernières avancées en Intelligence Artificielle.
+      </p>
+      <div class="hero-actions">
+        <a routerLink="/publications" class="btn-primary-modern">
+          <i class="fas fa-book-open"></i> Explorer les Publications
+        </a>
+        <a routerLink="/chercheurs" class="btn-secondary-modern">
+          <i class="fas fa-users"></i> Nos Chercheurs
+        </a>
+      </div>
+    </div>
+
+    <!-- Illustration SVG Réseau Neuronal -->
+    <div class="hero-illustration animate__animated animate__fadeInRight">
+      <svg viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg" class="neural-svg">
+        <!-- Connections -->
+        <line x1="80" y1="120" x2="180" y2="80"  stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="80" y1="120" x2="180" y2="175" stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="80" y1="230" x2="180" y2="175" stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="80" y1="230" x2="180" y2="270" stroke="#7C3AED" stroke-width="1.5" opacity="0.4"/>
+        <line x1="180" y1="80"  x2="290" y2="110" stroke="#7C3AED" stroke-width="1.5" opacity="0.4"/>
+        <line x1="180" y1="175" x2="290" y2="110" stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="180" y1="175" x2="290" y2="220" stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="180" y1="270" x2="290" y2="220" stroke="#7C3AED" stroke-width="1.5" opacity="0.4"/>
+        <line x1="290" y1="110" x2="360" y2="165" stroke="#2D5BE3" stroke-width="1.5" opacity="0.4"/>
+        <line x1="290" y1="220" x2="360" y2="165" stroke="#7C3AED" stroke-width="1.5" opacity="0.4"/>
+
+        <!-- Nodes - Couche 1 -->
+        <circle cx="80" cy="120" r="22" fill="#EEF2FF" stroke="#2D5BE3" stroke-width="2.5"/>
+        <circle cx="80" cy="120" r="10" fill="#2D5BE3"/>
+        <circle cx="80" cy="230" r="22" fill="#F3F0FF" stroke="#7C3AED" stroke-width="2.5"/>
+        <circle cx="80" cy="230" r="10" fill="#7C3AED"/>
+
+        <!-- Nodes - Couche 2 -->
+        <circle cx="180" cy="80"  r="22" fill="#EEF2FF" stroke="#2D5BE3" stroke-width="2.5"/>
+        <circle cx="180" cy="80"  r="10" fill="#2D5BE3"/>
+        <circle cx="180" cy="175" r="26" fill="#EEF2FF" stroke="#2D5BE3" stroke-width="3"/>
+        <circle cx="180" cy="175" r="13" fill="#2D5BE3"/>
+        <circle cx="180" cy="270" r="22" fill="#F3F0FF" stroke="#7C3AED" stroke-width="2.5"/>
+        <circle cx="180" cy="270" r="10" fill="#7C3AED"/>
+
+        <!-- Nodes - Couche 3 -->
+        <circle cx="290" cy="110" r="22" fill="#EEF2FF" stroke="#2D5BE3" stroke-width="2.5"/>
+        <circle cx="290" cy="110" r="10" fill="#2D5BE3"/>
+        <circle cx="290" cy="220" r="22" fill="#F3F0FF" stroke="#7C3AED" stroke-width="2.5"/>
+        <circle cx="290" cy="220" r="10" fill="#7C3AED"/>
+
+        <!-- Node - Sortie -->
+        <circle cx="360" cy="165" r="28" fill="#EEF2FF" stroke="#2D5BE3" stroke-width="3"/>
+        <circle cx="360" cy="165" r="14" fill="url(#outputGrad)"/>
+
+        <!-- Gradient -->
+        <defs>
+          <radialGradient id="outputGrad">
+            <stop offset="0%" stop-color="#2D5BE3"/>
+            <stop offset="100%" stop-color="#7C3AED"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Labels flottant -->
+        <text x="55" y="90" fill="#6B7280" font-size="10" font-family="Inter">Input</text>
+        <text x="330" y="140" fill="#6B7280" font-size="10" font-family="Inter">Output</text>
+      </svg>
+
+      <!-- Floating badges -->
+      <div class="floating-badge badge-1">
+        <i class="fas fa-brain text-primary"></i> Deep Learning
+      </div>
+      <div class="floating-badge badge-2">
+        <i class="fas fa-eye" style="color:#16A34A"></i> Vision par Ordi.
+      </div>
+      <div class="floating-badge badge-3">
+        <i class="fas fa-comment-dots" style="color:#7C3AED"></i> NLP
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats rapides -->
+  <div class="hero-stats">
+    <div class="stat-bubble animate__animated animate__fadeInUp" style="animation-delay:0.1s">
+      <div class="stat-bubble-icon" style="background:#EEF2FF;color:#2D5BE3">
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="stat-bubble-value" [attr.data-target]="stats.chercheurs">{{ displayStats.chercheurs }}</div>
+      <div class="stat-bubble-label">Chercheurs</div>
+    </div>
+    <div class="stat-bubble animate__animated animate__fadeInUp" style="animation-delay:0.2s">
+      <div class="stat-bubble-icon" style="background:#F0FDF4;color:#16A34A">
+        <i class="fas fa-book-open"></i>
+      </div>
+      <div class="stat-bubble-value">{{ displayStats.publications }}</div>
+      <div class="stat-bubble-label">Publications</div>
+    </div>
+    <div class="stat-bubble animate__animated animate__fadeInUp" style="animation-delay:0.3s">
+      <div class="stat-bubble-icon" style="background:#F5F3FF;color:#7C3AED">
+        <i class="fas fa-tag"></i>
+      </div>
+      <div class="stat-bubble-value">{{ displayStats.domaines }}</div>
+      <div class="stat-bubble-label">Domaines</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2 : DOMAINES ─────────────────────── -->
+<section class="section-domains" *ngIf="!isLoading">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Domaines de Recherche</h2>
+      <p class="section-subtitle">Des expertises variées au service de l'innovation scientifique</p>
+    </div>
+    <div class="domains-grid">
+      <div *ngFor="let domaine of domaines.slice(0,6); let i = index"
+           class="domain-card hover-lift animate__animated animate__fadeInUp"
+           [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="domain-icon" [class]="getDomainIconClass(domaine.nom)">
+          <i class="fas" [class]="getDomainIcon(domaine.nom)"></i>
+        </div>
+        <h4 class="domain-name">{{ domaine.nom }}</h4>
+        <p class="domain-desc">{{ domaine.description || 'Recherche avancée dans ce domaine spécialisé.' }}</p>
+        <div class="domain-stat">
+          <i class="fas fa-tag"></i> &nbsp;{{ domaine.nom }}
+        </div>
+        <a routerLink="/chercheurs" [queryParams]="{domaine: domaine.id}" class="domain-link">
+          Explorer <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Fallback si aucun domaine -->
+      <ng-container *ngIf="domaines.length === 0">
+        <div class="domain-card hover-lift" *ngFor="let item of [
+          {nom:'NLP', desc:'Traitement du langage naturel et compréhension des textes', icon:'fa-comment-dots', cls:'domain-nlp'},
+          {nom:'Vision par Ordi', desc:'Analyse d\'images et reconnaissance visuelle', icon:'fa-eye', cls:'domain-vision'},
+          {nom:'Cybersécurité IA', desc:'Sécurité des systèmes par apprentissage', icon:'fa-shield-halved', cls:'domain-cyber'}
+        ]">
+          <div class="domain-icon" [class]="item.cls">
+            <i class="fas" [class]="item.icon"></i>
+          </div>
+          <h4 class="domain-name">{{ item.nom }}</h4>
+          <p class="domain-desc">{{ item.desc }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3 : PUBLICATIONS RÉCENTES ────────── -->
+<section class="section-publications" *ngIf="!isLoading && recentPublications.length > 0">
+  <div class="section-container">
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Dernières Publications</h2>
+        <p class="section-subtitle">Les travaux scientifiques les plus récents</p>
+      </div>
+      <a routerLink="/publications" class="btn-secondary-modern">
+        Voir toutes <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="publications-grid">
+      <div *ngFor="let pub of recentPublications; let i = index"
+           class="pub-card hover-lift animate__animated animate__fadeInUp"
+           [style.animation-delay]="(i * 0.15) + 's'">
+        <div class="pub-card-header">
+          <span class="badge-modern" [class]="getPubBadgeClass(pub.type)">{{ pub.type }}</span>
+          <span class="pub-date"><i class="fas fa-calendar"></i> {{ pub.datePublication | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <h4 class="pub-title">{{ pub.titre }}</h4>
+        <p class="pub-resume">{{ pub.resume ? (pub.resume | slice:0:160) : '' }}{{ (pub.resume?.length || 0) > 160 ? '...' : '' }}</p>
+        <div class="pub-meta">
+          <span class="pub-domain" *ngIf="pub.domaine">
+            <i class="fas fa-tag"></i> {{ pub.domaine.nom }}
+          </span>
+          <span class="pub-authors">
+            <i class="fas fa-user-pen"></i> {{ pub.chercheurs?.length || 0 }} auteur(s)
+          </span>
+        </div>
+        <a [routerLink]="['/publications', pub.id]" class="pub-link">
+          Lire la publication <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4 : ACTUALITÉS ────────────────────── -->
+<section class="section-actualites" *ngIf="!isLoading && (epingles.length > 0 || actualites.length > 0)">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Actualités & Annonces</h2>
+      <p class="section-subtitle">Les dernières nouvelles de la communauté de recherche</p>
+    </div>
+
+    <!-- Épinglées -->
+    <div *ngIf="epingles.length > 0" class="mb-4">
+      <div *ngFor="let act of epingles"
+           class="actu-card actu-epinglee hover-lift">
+        <div class="actu-category-bar" [class]="getActuCategoryClass(act.categorie)"></div>
+        <div class="actu-body">
+          <div class="actu-badges">
+            <span class="actu-pin"><i class="fas fa-thumbtack"></i> Épinglé</span>
+            <span class="badge-modern" [class]="getActuBadgeClass(act.categorie)">{{ formatCategorie(act.categorie) }}</span>
+          </div>
+          <h4 class="actu-title">{{ act.titre }}</h4>
+          <p class="actu-content">{{ act.contenu | slice:0:200 }}...</p>
+          <span class="actu-date"><i class="fas fa-clock"></i> {{ act.datePublication | date:'dd MMMM yyyy' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Autres actualités -->
+    <div class="actualites-grid">
+      <div *ngFor="let act of actualites"
+           class="actu-card hover-lift animate__animated animate__fadeInUp">
+        <div class="actu-category-bar" [class]="getActuCategoryClass(act.categorie)"></div>
+        <div class="actu-body">
+          <span class="badge-modern mb-2" [class]="getActuBadgeClass(act.categorie)">{{ formatCategorie(act.categorie) }}</span>
+          <h5 class="actu-title">{{ act.titre }}</h5>
+          <p class="actu-content">{{ act.contenu | slice:0:120 }}...</p>
+          <span class="actu-date"><i class="fas fa-clock"></i> {{ act.datePublication | date:'dd/MM/yyyy' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 5 : PROJETS MIS EN AVANT ─────────── -->
+<section class="section-projets" *ngIf="!isLoading && projetsVus.length > 0">
+  <div class="section-container">
+    <div class="section-header">
+      <h2 class="section-title">Projets Mis en Avant</h2>
+      <p class="section-subtitle">Les projets phares de notre laboratoire</p>
+    </div>
+    <div class="projets-grid">
+      <div *ngFor="let projet of projetsVus; let i = index"
+           class="projet-card hover-lift animate__animated animate__fadeInUp"
+           [style.animation-delay]="(i * 0.1) + 's'">
+        <div class="projet-image">
+          <img *ngIf="projet.imageUrl"
+               [src]="projet.imageUrl"
+               [alt]="projet.titre"
+               loading="lazy"
+               (error)="onImgError($event)"
+               style="width:100%;height:100%;object-fit:cover">
+          <div class="projet-placeholder" *ngIf="!projet.imageUrl">
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="projet-body">
+          <h4 class="projet-title">{{ projet.titre }}</h4>
+          <p class="projet-desc">{{ projet.description | slice:0:120 }}...</p>
+          <a *ngIf="projet.lienPublication" [href]="projet.lienPublication" target="_blank" class="projet-link">
+            <i class="fas fa-external-link-alt"></i> Voir le projet
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer class="footer-modern" *ngIf="!isLoading">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <i class="fas fa-brain"></i>
+        <span><span style="color:var(--primary)">IA-</span>Technology</span>
+      </div>
+      <p class="footer-tagline">L'intelligence artificielle au service de la recherche scientifique.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h6>Navigation</h6>
+        <a routerLink="/home">Accueil</a>
+        <a routerLink="/chercheurs">Chercheurs</a>
+        <a routerLink="/publications">Publications</a>
+        <a routerLink="/domaines">Domaines</a>
+      </div>
+      <div class="footer-col">
+        <h6>Compte</h6>
+        <a routerLink="/login">Connexion</a>
+        <a routerLink="/register">Inscription</a>
+        <a routerLink="/profile">Mon Profil</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {{ currentYear }} IA-Technology. Tous droits réservés.</span>
+  </div>
+</footer>

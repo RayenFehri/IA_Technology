@@ -1,0 +1,107 @@
+<!-- ===========================
+     NAVBAR PREMIUM - IA-Technology
+     =========================== -->
+<nav class="navbar-modern" [class.scrolled]="isScrolled">
+  <div class="navbar-container">
+
+    <!-- Logo -->
+    <a routerLink="/home" class="nav-logo">
+      <div class="logo-icon">
+        <i class="fas fa-brain"></i>
+      </div>
+      <span class="logo-text">
+        <span class="accent">IA-</span><span class="normal">Technology</span>
+      </span>
+    </a>
+
+    <!-- Navigation Links (Desktop) -->
+    <ul class="nav-links" [class.open]="menuOpen">
+      <li>
+        <a routerLink="/home" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-house"></i> Accueil
+        </a>
+      </li>
+      <li>
+        <a routerLink="/chercheurs" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-users"></i> Chercheurs
+        </a>
+      </li>
+      <li>
+        <a routerLink="/publications" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-book-open"></i> Publications
+        </a>
+      </li>
+      <li>
+        <a routerLink="/domaines" routerLinkActive="active" class="nav-link">
+          <i class="fas fa-tag"></i> Domaines
+        </a>
+      </li>
+    </ul>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <!-- Non connecté -->
+      <ng-container *ngIf="!(currentUser$ | async)">
+        <a routerLink="/login" class="btn-nav-outline">
+          <i class="fas fa-right-to-bracket"></i> Connexion
+        </a>
+        <a routerLink="/register" class="btn-nav-filled">
+          <i class="fas fa-user-plus"></i> Inscription
+        </a>
+      </ng-container>
+
+      <!-- Connecté -->
+      <ng-container *ngIf="currentUser$ | async as user">
+        <!-- Lien Admin -->
+        <a *ngIf="isAdmin" routerLink="/admin" class="nav-role-link admin">
+          <i class="fas fa-shield-halved"></i> Admin
+        </a>
+        <!-- Lien Modérateur -->
+        <a *ngIf="isModerator && !isAdmin" routerLink="/moderateur" class="nav-role-link mod">
+          <i class="fas fa-star"></i> Modérateur
+        </a>
+
+        <!-- Avatar Dropdown -->
+        <div class="nav-dropdown" [class.open]="dropdownOpen">
+          <div class="nav-avatar" (click)="toggleDropdown()">
+            {{ getInitials(user.username) }}
+          </div>
+          <div class="nav-dropdown-menu">
+            <div class="dropdown-header">
+              <div class="dropdown-avatar">{{ getInitials(user.username) }}</div>
+              <div>
+                <div class="dropdown-name">{{ user.username }}</div>
+                <div class="dropdown-role">{{ (user.roles && user.roles[0]) ? (user.roles[0] | titlecase) : 'Utilisateur' }}</div>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a routerLink="/profile" class="dropdown-item" (click)="closeDropdown()">
+              <i class="fas fa-user"></i> Mon profil
+            </a>
+            <a *ngIf="isAdmin" routerLink="/admin" class="dropdown-item" (click)="closeDropdown()">
+              <i class="fas fa-gauge"></i> Dashboard Admin
+            </a>
+            <a *ngIf="isModerator" routerLink="/moderateur" class="dropdown-item" (click)="closeDropdown()">
+              <i class="fas fa-star"></i> Espace Modérateur
+            </a>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item danger" (click)="logout()">
+              <i class="fas fa-right-from-bracket"></i> Déconnexion
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Hamburger (Mobile) -->
+      <button class="hamburger" (click)="toggleMenu()" aria-label="Menu">
+        <span [class.active]="menuOpen"></span>
+        <span [class.active]="menuOpen"></span>
+        <span [class.active]="menuOpen"></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Overlay mobile -->
+<div class="nav-overlay" [class.show]="menuOpen" (click)="closeMenu()"></div>

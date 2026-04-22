@@ -1,0 +1,67 @@
+<div class="admin-page">
+  <div class="page-header">
+    <div>
+      <h1 class="page-title"><i class="bi bi-kanban text-success me-2"></i> Projets mis en avant</h1>
+      <p class="page-subtitle">Projets affichés sur la page d'accueil</p>
+    </div>
+    <a routerLink="/moderateur/projets/creer" class="btn-primary-modern">
+      <i class="bi bi-plus-lg me-1"></i> Ajouter
+    </a>
+  </div>
+
+  <div class="grid-3">
+    <div class="col-12 text-center text-muted py-5" *ngIf="projets.length === 0">
+      <i class="bi bi-folder-x fs-1 mb-3 d-block opacity-50"></i>
+      <h5>Aucun projet n'est actuellement mis en avant.</h5>
+    </div>
+
+    <div *ngFor="let p of projets; let i = index">
+      <div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden" [ngClass]="{'opacity-50': !p.actif}">
+        <div class="position-relative">
+          <img [src]="p.imageUrl || '/assets/images/default-project.svg'"
+               class="card-img-top"
+               alt="Image du projet"
+               loading="lazy"
+               style="height: 180px; object-fit: cover;"
+               (error)="onImgError($event)">
+          <div class="position-absolute top-0 end-0 m-3">
+             <span class="badge" [ngClass]="p.actif ? 'bg-success' : 'bg-secondary'">{{ p.actif ? 'Actif' : 'Inactif' }}</span>
+          </div>
+          <div class="position-absolute bottom-0 start-0 m-3">
+            <span class="badge bg-dark rounded-pill fs-6 px-3">Ordre: {{ p.ordre }}</span>
+          </div>
+        </div>
+        
+        <div class="card-body p-4">
+          <h5 class="fw-bold text-dark text-truncate">{{ p.titre }}</h5>
+          <p class="text-muted small mb-0 fw-medium">Créé par {{ p.ajoutePar || 'Admin' }}</p>
+        </div>
+        
+        <div class="card-footer bg-white border-top-0 p-4 pt-0 d-flex justify-content-between align-items-center">
+          
+          <div class="d-flex gap-1">
+            <button class="btn btn-sm btn-light text-primary rounded-circle" (click)="monterOrdre($event, p, i)" [disabled]="i === 0" title="Monter">
+              <i class="bi bi-arrow-up"></i>
+            </button>
+            <button class="btn btn-sm btn-light text-primary rounded-circle" (click)="descendreOrdre($event, p, i)" [disabled]="i === (projets.length - 1)" title="Descendre">
+              <i class="bi bi-arrow-down"></i>
+            </button>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button class="btn btn-sm btn-light rounded-circle" (click)="toggleActif(p)" [title]="p.actif ? 'Désactiver' : 'Activer'">
+              <i class="bi" [ngClass]="p.actif ? 'bi-toggle-on text-success' : 'bi-toggle-off text-secondary'"></i>
+            </button>
+            <a [routerLink]="['/moderateur/projets/modifier', p.id]" class="btn btn-sm btn-light text-primary rounded-circle">
+              <i class="bi bi-pencil"></i>
+            </a>
+            <button class="btn btn-sm btn-light text-danger rounded-circle" (click)="deleteProjet(p.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

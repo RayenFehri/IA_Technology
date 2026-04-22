@@ -1,0 +1,332 @@
+.navbar-modern {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+
+  &.scrolled {
+    box-shadow: var(--shadow-md);
+    background: rgba(255, 255, 255, 0.99);
+  }
+}
+
+.navbar-container {
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 4rem;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+/* ── Logo ─────────────────────────────────────────── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 16px;
+    box-shadow: var(--shadow-primary);
+  }
+
+  .logo-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+
+    .accent { color: var(--primary); }
+    .normal { color: var(--gray-900); }
+  }
+}
+
+/* ── Nav Links ────────────────────────────────────── */
+.nav-links {
+  display: flex;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+
+  .nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    i { font-size: 15px; }
+
+    &:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    &.active {
+      color: var(--primary);
+      background: var(--primary-light);
+      font-weight: 600;
+    }
+  }
+}
+
+/* ── Right Actions ───────────────────────────────── */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.btn-nav-outline {
+  padding: 10px 24px;
+  border: 1.5px solid var(--primary);
+  border-radius: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover { background: var(--primary-light); }
+}
+
+.btn-nav-filled {
+  padding: 10px 24px;
+  background: var(--primary);
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-primary);
+
+  &:hover { background: var(--primary-dark); color: white; }
+}
+
+.nav-role-link {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+
+  &.admin { background: #FFF7ED; color: #EA580C; &:hover { background: #FFEDD5; } }
+  &.mod   { background: var(--secondary-light); color: var(--secondary); &:hover { background: #E9D5FF; } }
+}
+
+/* ── Avatar Dropdown ─────────────────────────────── */
+.nav-dropdown {
+  position: relative;
+
+  .nav-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-primary);
+
+    &:hover { transform: scale(1.08); }
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(8px);
+    transition: var(--transition);
+    z-index: 200;
+  }
+
+  &.open .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .dropdown-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .dropdown-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--gray-900);
+    }
+
+    .dropdown-role {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+  }
+
+  .dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 4px 0;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition);
+    background: transparent;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    i { width: 16px; text-align: center; color: var(--text-secondary); }
+
+    &:hover { background: var(--gray-50); color: var(--primary); i { color: var(--primary); } }
+    &.danger { color: var(--danger); &:hover { background: #FEF2F2; } i { color: var(--danger); } }
+  }
+}
+
+/* ── Hamburger ───────────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: var(--transition);
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--gray-700);
+    border-radius: 2px;
+    transition: var(--transition);
+
+    &.active:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    &.active:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    &.active:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+
+  &:hover { background: var(--gray-100); }
+}
+
+/* ── Overlay Mobile ──────────────────────────────── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.show { opacity: 1; }
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 992px) {
+  .hamburger { display: flex; }
+  .nav-overlay { display: block; pointer-events: none; &.show { pointer-events: all; } }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 80px 20px 20px;
+    gap: 4px;
+    z-index: 950;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
+
+    &.open { right: 0; }
+
+    .nav-link { padding: 12px 16px; border-radius: var(--border-radius-sm); }
+  }
+
+  .btn-nav-outline, .btn-nav-filled, .nav-role-link { display: none; }
+}
+
+@media (max-width: 576px) {
+  .navbar-container { padding: 0 1rem; }
+  .logo-text { font-size: 1rem; }
+}
